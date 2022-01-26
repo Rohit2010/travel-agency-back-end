@@ -6,6 +6,7 @@ const dotenv = require("dotenv");
 var cors = require("cors");
 const port = process.env.PORT || 8800;
 dotenv.config();
+const ItemManipulate = require("./route/ItemManipulate");
 
 // Make connection with db
 mongoose
@@ -22,6 +23,7 @@ app.use(cors());
 app.use(express.json());
 
 // Make different routes
+app.use("/api/ItemManipulate", ItemManipulate);
 
 app.listen(port, () => {
   console.log("Backend server is running on port", port);
