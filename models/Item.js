@@ -12,7 +12,7 @@ const ItemSchema = new mongoose.Schema(
     long: { type: Number, required: true },
     width: { type: Number, required: true },
     height: { type: Number, required: true },
-    boxSize: { type: Number, required: true },
+    boxSize: { type: String, required: true },
   },
   { timestamps: true }
 );
