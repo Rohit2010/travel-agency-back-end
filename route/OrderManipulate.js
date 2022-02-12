@@ -4,24 +4,24 @@ const Order = require("../models/Order");
 //post data in the Order table
 
 router.post("/post", async (req, res) => {
-  const OrderData = new Order({
-    productName: req.body.productName,
-    QNT: req.body.QNT,
-    cost: req.body.cost,
-    total: req.body.total,
-    customer: req.body.customer,
-    Date: req.body.Date,
-    orderName: req.body.orderName,
-    state: req.body.state,
-    availibilityDate: req.body.availibilityDate,
-    deliveryDate: req.body.deliveryDate,
-    partNo: req.body.deliveryDate,
-    totalSize: req.body.totalSize,
-    BK_NO: req.body.BK_NO,
-    totalBoxes: req.body.totalBoxes,
-    notes: req.body.notes,
-  });
   try {
+    const OrderData = new Order({
+      ProductName: req.body.productName,
+      QNT: req.body.QNT,
+      cost: req.body.cost,
+      total: req.body.total,
+      customer: req.body.customer,
+      date: req.body.Date,
+      ordername: req.body.orderName,
+      state: req.body.state,
+      availabilityDate: req.body.availabilityDate,
+      deliveryDate: req.body.deliveryDate,
+      partno: req.body.partNo,
+      totalsize: req.body.totalSize,
+      BKNO: req.body.BK_NO,
+      TotalBoxes: req.body.totalBoxes,
+      Notes: req.body.notes,
+    });
     const orderResult = await OrderData.save();
 
     res.status(200).json({ Result: "order record save successfully" });

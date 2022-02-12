@@ -18,7 +18,6 @@ router.post("/post", async (req, res) => {
       height: req.body.height,
       boxSize: req.body.boxSize,
     });
-    console.log(itemData);
     const itemResult = await itemData.save();
 
     res.status(200).json({ Result: "Item record save successfully" });

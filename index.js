@@ -9,6 +9,8 @@ dotenv.config();
 const ItemManipulate = require("./route/ItemManipulate");
 const OrderManipulate = require("./route/OrderManipulate");
 const ReportManipulate = require("./route/ReportManipulate");
+const GetProductNames = require("./route/GetProductNames");
+const AddBrand = require("./route/AddBrand");
 
 // Make connection with db
 mongoose
@@ -28,6 +30,8 @@ app.use(express.json());
 app.use("/api/ItemManipulate", ItemManipulate);
 app.use("/api/OrderManipulate", OrderManipulate);
 app.use("/api/ReportManipulate", ReportManipulate);
+app.use("/api/GetProductNames", GetProductNames);
+app.use("/api/AddBrand", AddBrand);
 
 app.listen(port, () => {
   console.log("Backend server is running on port", port);
