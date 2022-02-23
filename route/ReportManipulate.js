@@ -36,6 +36,7 @@ router.get("/get", async (req, res) => {
       obj.total = orderData[i].total;
       obj.state = orderData[i].state;
       obj.totalsize = orderData[i].totalsize;
+      obj.customer = orderData[i].customer;
       dataToSend.push(obj);
     }
     res.status(200).json(dataToSend);
