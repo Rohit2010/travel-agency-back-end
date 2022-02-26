@@ -32,7 +32,9 @@ app.use("/api/OrderManipulate", OrderManipulate);
 app.use("/api/ReportManipulate", ReportManipulate);
 app.use("/api/GetProductNames", GetProductNames);
 app.use("/api/AddBrand", AddBrand);
-
+app.use("/", (req, res) => {
+  res.send("hello");
+});
 app.listen(port, () => {
   console.log("Backend server is running on port", port);
 });
