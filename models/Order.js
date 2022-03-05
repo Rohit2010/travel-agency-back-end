@@ -14,7 +14,7 @@ const OrderSchema = new mongoose.Schema(
     deliveryDate: { type: String },
     partno: { type: Number, required: true },
     totalsize: { type: Number, required: true },
-    BKNO: { type: Number },
+    BKNO: { type: String },
     TotalBoxes: { type: Number, required: true },
     Notes: { type: String },
   },
