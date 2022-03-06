@@ -37,4 +37,30 @@ router.get("/get", async (req, res) => {
   }
 });
 
+// update item
+router.post("/update", async (req, res) => {
+  try {
+    const itemData = {
+      brand: req.body.brand,
+      productName: req.body.productName,
+      productDescription: req.body.productDescription,
+      tradeName: req.body.tradeName,
+      pcsInbox: req.body.pcsInbox,
+      minimumOrder: req.body.minimumOrder,
+      cost: req.body.cost,
+      long: req.body.long,
+      width: req.body.width,
+      height: req.body.height,
+      boxSize: req.body.boxSize,
+    };
+
+    var query = { _id: req.body.id };
+
+    await Items.findOneAndUpdate(query, itemData, { upsert: true });
+    res.status(200).json({ Result: "Item record save successfully" });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
