@@ -22,6 +22,13 @@ router.post("/post", async (req, res) => {
 
     res.status(200).json({ Result: "Item record save successfully" });
   } catch (err) {
+    if (err.code === 11000) {
+      return res.json({
+        err: err,
+        status: "not ok",
+        errmsg: "Duplicate value",
+      });
+    }
     res.status(500).json(err);
   }
 });

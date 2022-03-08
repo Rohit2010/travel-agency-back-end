@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const OrderSchema = new mongoose.Schema(
   {
-    ProductName: { type: String, required: true, unique: true },
+    ProductName: { type: String, required: true },
     QNT: { type: Number, required: true },
     cost: { type: Number, required: true },
     total: { type: Number, required: true },
