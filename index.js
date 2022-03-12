@@ -11,6 +11,7 @@ const OrderManipulate = require("./route/OrderManipulate");
 const ReportManipulate = require("./route/ReportManipulate");
 const GetProductNames = require("./route/GetProductNames");
 const AddBrand = require("./route/AddBrand");
+const DeleteData = require("./route/DeleteData");
 
 // Make connection with db
 mongoose
@@ -31,6 +32,7 @@ app.use("/api/ItemManipulate", ItemManipulate);
 app.use("/api/OrderManipulate", OrderManipulate);
 app.use("/api/ReportManipulate", ReportManipulate);
 app.use("/api/GetProductNames", GetProductNames);
+app.use("/api/Delete", DeleteData);
 app.use("/api/AddBrand", AddBrand);
 app.use("/", (req, res) => {
   res.send("hello");
