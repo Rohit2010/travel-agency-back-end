@@ -108,4 +108,18 @@ router.post("/update", async (req, res) => {
   }
 });
 
+router.post("/deleterows", async (req, res) => {
+  try {
+    const rowsToDelete = req.body.rows;
+    console.log(rowsToDelete);
+
+    for (let i = 0; i < rowsToDelete.length; i++)
+      await Order.deleteOne({ _id: rowsToDelete[i] });
+
+    res.status(200).json({ Result: "Deleted successfully", status: "ok" });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
