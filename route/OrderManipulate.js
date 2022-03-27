@@ -79,4 +79,47 @@ router.get("/get", async (req, res) => {
   }
 });
 
+router.post("/update", async (req, res) => {
+  try {
+    const OrderData = {
+      ProductName: req.body.productName,
+      QNT: req.body.QNT,
+      cost: req.body.cost,
+      total: req.body.total,
+      customer: req.body.customer,
+      date: req.body.Date,
+      ordername: req.body.orderName,
+      state: req.body.state,
+      availabilityDate: req.body.availabilityDate,
+      deliveryDate: req.body.deliveryDate,
+      partno: req.body.partNo,
+      totalsize: req.body.totalSize,
+      BKNO: req.body.BK_NO,
+      TotalBoxes: req.body.totalBoxes,
+      Notes: req.body.notes,
+    };
+    console.log(OrderData, req.body.id);
+    var query = { _id: req.body.id };
+    await Order.findOneAndUpdate(query, OrderData, { upsert: true });
+
+    res.status(200).json({ Result: "order record save successfully" });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.post("/deleterows", async (req, res) => {
+  try {
+    const rowsToDelete = req.body.rows;
+    console.log(rowsToDelete);
+
+    for (let i = 0; i < rowsToDelete.length; i++)
+      await Order.deleteOne({ _id: rowsToDelete[i] });
+
+    res.status(200).json({ Result: "Deleted successfully", status: "ok" });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;

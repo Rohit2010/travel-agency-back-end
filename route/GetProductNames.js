@@ -161,9 +161,7 @@ router.post("/deleterows", async (req, res) => {
     for (let i = 0; i < rowsToDelete.length; i++)
       await Items.deleteOne({ _id: rowsToDelete[i] });
 
-    res
-      .status(200)
-      .json({ Result: "state record save successfully", status: "ok" });
+    res.status(200).json({ Result: "Deleted successfully", status: "ok" });
   } catch (err) {
     res.status(500).json(err);
   }
