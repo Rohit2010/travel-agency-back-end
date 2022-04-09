@@ -69,5 +69,15 @@ router.post("/update", async (req, res) => {
     res.status(500).json(err);
   }
 });
+router.post("/postexcel", async (req, res) => {
+  try {
+    const excelData = req.body.excelData;
+    let results = await Items.insertMany(excelData);
+
+    res.status(200).json({ Result: "order record save successfully" });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;
