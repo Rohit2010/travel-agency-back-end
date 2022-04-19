@@ -26,7 +26,6 @@ router.post("/brand", async (req, res) => {
       options,
       (err, result) => {
         if (err) res.status(500).json(err);
-        console.log(result);
       }
     );
     res
@@ -55,7 +54,6 @@ router.post("/customer", async (req, res) => {
       options,
       (err, result) => {
         if (err) res.status(500).json(err);
-        console.log(result);
       }
     );
 
@@ -73,7 +71,6 @@ router.post("/order", async (req, res) => {
 
     const id = req.body.id;
 
-    console.log(previosValue, newValue);
 
     const data = {
       order: newValue,
@@ -87,7 +84,6 @@ router.post("/order", async (req, res) => {
       options,
       (err, result) => {
         if (err) res.status(500).json(err);
-        console.log(result);
       }
     );
 
@@ -117,7 +113,6 @@ router.post("/state", async (req, res) => {
       options,
       (err, result) => {
         if (err) res.status(500).json(err);
-        console.log(result);
       }
     );
 
@@ -147,7 +142,6 @@ router.post("/bkno", async (req, res) => {
       options,
       (err, result) => {
         if (err) res.status(500).json(err);
-        console.log(result);
       }
     );
 

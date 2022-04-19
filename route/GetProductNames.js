@@ -156,7 +156,6 @@ router.get("/getState", async (req, res) => {
 router.post("/deleterows", async (req, res) => {
   try {
     const rowsToDelete = req.body.rows;
-    console.log(rowsToDelete);
 
     for (let i = 0; i < rowsToDelete.length; i++)
       await Items.deleteOne({ _id: rowsToDelete[i] });

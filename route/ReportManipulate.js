@@ -20,7 +20,6 @@ router.post("/searchByOrderandstate", async (req, res) => {
       findObj.customer = customername;
     if (bkno !== "" && bkno !== "All" && bkno !== null) findObj.BKNO = bkno;
 
-    console.log(findObj);
     const result = await Order.find(findObj);
 
     res.status(200).json({ result: result, status: "ok" });

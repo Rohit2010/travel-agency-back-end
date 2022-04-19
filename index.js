@@ -15,16 +15,18 @@ const DeleteData = require("./route/DeleteData");
 const UpdateData = require("./route/UpdateData");
 
 // Make connection with db
-mongoose
-  .connect(process.env.MONGO_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log("DB Connection Successfull"))
-  .catch((err) => {
-    console.error(err);
-  });
-
+const connectionToDb = async () => {
+  await mongoose
+    .connect(process.env.MONGO_URL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    })
+    .then(() => console.log("DB Connection Successfull"))
+    .catch((err) => {
+      console.error(err);
+    });
+};
+connectionToDb();
 app.use(cors());
 app.use(express.json());
 
