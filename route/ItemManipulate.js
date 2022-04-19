@@ -74,6 +74,11 @@ router.post("/postexcel", async (req, res) => {
     const excelData = req.body.excelData;
     let results = await Items.insertMany(excelData);
 
+    // for (let i = 0; i < excelData.length; i++) {
+    //   let data = new Items(excelData[i]);
+    //   await data.save();
+    // }
+
     res.status(200).json({ Result: "order record save successfully" });
   } catch (err) {
     res.status(500).json(err);
