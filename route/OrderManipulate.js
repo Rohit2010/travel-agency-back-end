@@ -61,6 +61,7 @@ router.post("/postexcel", async (req, res) => {
 
       tempData.push(tempObj);
     }
+    console.log(tempData);
     let results = await Order.insertMany(tempData);
     res.status(200).json({ Result: "order record save successfully" });
   } catch (err) {
@@ -73,6 +74,15 @@ router.post("/postexcel", async (req, res) => {
 router.get("/get", async (req, res) => {
   try {
     const orderData = await Order.find();
+    res.status(200).json(orderData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+router.get("/getbyid", async (req, res) => {
+  try {
+    const id = req.query.orderid;
+    const orderData = await Order.findOne({ _id: id });
     res.status(200).json(orderData);
   } catch (err) {
     res.status(500).json(err);

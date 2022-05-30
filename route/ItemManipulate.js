@@ -72,6 +72,8 @@ router.post("/update", async (req, res) => {
 router.post("/postexcel", async (req, res) => {
   try {
     const excelData = req.body.excelData;
+    console.log(excelData);
+
     let results = await Items.insertMany(excelData);
 
     // for (let i = 0; i < excelData.length; i++) {
