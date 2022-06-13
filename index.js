@@ -39,7 +39,7 @@ app.use("/api/Delete", DeleteData);
 app.use("/api/update", UpdateData);
 app.use("/api/AddBrand", AddBrand);
 app.use("/", (req, res) => {
-  res.send("hello");
+  res.send("hello world");
 });
 app.listen(port, () => {
   console.log("Backend server is running on port", port);
