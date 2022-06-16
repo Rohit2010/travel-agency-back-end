@@ -42,6 +42,7 @@ app.use("/api/AddBrand", AddBrand);
 app.get("/", async (req, res) => {
   res.send("welcome to the inventory API");
 });
+
 app.listen(port, () => {
   console.log("Backend server is running on port", port);
 });
